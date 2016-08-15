@@ -1,0 +1,56 @@
+form#signup, form#login {
+  width: 300px;
+  height: 150px;
+  float: right;
+  border-radius: 5px;
+  position: absolute;
+  transition: top 0.7s;
+  text-align: center;
+}
+
+form#signup .input-area,
+form#login .input-area {
+  padding: 20px 20px 0;
+  background: #eee;
+}
+
+form#signup {
+  right: 95px;
+  top: -272px;
+}
+form#login {
+  right: 10px;
+  top: -145px;
+}
+
+form#signup input[type=submit],
+form#login input[type=submit] {
+  width: 80px;
+  height: 40px;
+  float: right;
+  position: relative;
+  right: 10px;
+  background: #000;
+  color: #fff;
+  font-size: 20px;
+  line-height: 40px;
+  border-radius: 3px;
+  transition: top 5s;
+}
+
+form#signup:hover, form#login:hover {
+   top: 0px;
+   z-index: 3;
+}
+
+form#signup input,
+form#login input {
+  width: 100%;
+  height: 40px;
+  font-size: 20px;
+  border-radius: 3px;
+  padding: 0 5px;
+  margin: 0 0 20px;
+  border: none;
+  border-bottom: 3px solid #ddd;
+}

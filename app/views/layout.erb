@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>dunnn!</title>
+  <link rel="stylesheet" type="text/css" href="css/main.css">
+  <link rel="stylesheet" type="text/css" href="css/auth.css">
+  <link rel="stylesheet" type="text/css" href="css/profile.css">
+  <link rel="stylesheet" type="text/css" href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+</head>
+<body>
+  <nav>
+    <div class="container">
+      <div class="logo">
+        <h1>dunn!</h1>
+      </div>
+
+      <ul>
+        <% if @session[:id] %>
+        <l1 id="username">
+          <%= @user.username %>
+        </l1>
+        <li>
+          <!-- logout -->
+          <form id="logout" action="/" method="post">
+            <input type="hidden" name="auth_type" value="logout">
+            <button type="submit">logout</button>
+          </form>
+        </li>
+        <% end %>
+      </ul>
+    
+      <footer>
+        <p>&copy;2016 dunn Inc.</p>
+      </footer>
+    </div>
+  </nav>
+
+  <main>
+    <div class="container">
+      <%= yield %>
+    </div>
+  </main>
+</body>
+</html>

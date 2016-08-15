@@ -1,0 +1,77 @@
+* {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  text-decoration: none;
+/*border: 1px solid red;*/
+}
+
+body {
+  font-family: Monospace;
+  background: #eee;
+}
+
+/* side nav */
+nav {
+  width: 20vw;
+  height: 100vh;
+  background: #222;
+  position: fixed;
+}
+
+nav .container {
+  margin: 15%;
+  width: 100%;
+}
+
+nav .logo {
+  color: whitesmoke;
+  font-size: 130%;
+  margin-bottom: 30%;
+}
+
+nav li {
+  margin-bottom: 10%;
+  font-size: 120%;
+}
+
+nav footer {
+  color: #666;
+  width: 100%;
+  position: absolute;
+  bottom: 3%;
+}
+
+nav ul #username {
+  display: block;
+  color: white;
+  font-size: 20px;
+  margin-bottom: 20px;
+}
+
+nav ul form#logout button {
+  border: none;
+  background: none;
+  color: #666;
+  font-size: 13px;
+}
+
+nav ul form#logout button:hover {
+  color: #bbb;
+}
+
+
+/* main */
+main {
+  width: 80vw;
+  /*padding: 40px;*/
+  height: 100vh;
+  position: relative;
+  top: 0;
+  left: 20vw;
+}
+
+main .container {
+  padding: 4%;
+  width: 100%;
+}

@@ -1,0 +1,68 @@
+<!-- add task -->
+<form id="task-form" action="/" method="post">
+  <input type="hidden" name="_method" value="put">
+  <input id="taskInput" type="text" name="todo[task]" placeholder="new task" required>
+  <button id="add" type="submit"><i class='icon ion-plus-round'></i></button>
+</form>
+
+<!-- list todos -->
+<div id="todo-list">
+  <% @user.todos.reverse.each do |todo| %>
+  <div class="todo">
+    <div class="task">
+      <!-- check off -->
+      <form id="checked-form" action="/" method="post">
+        <input type="hidden" name="_method" value="patch">
+        <input type="hidden" name="patch_type" value="check-off">
+        <input type="hidden" name="todo_id" value="<%= todo.id %>">
+        <button id="check-btn" type="submit" title="check">
+        <% if todo.is_done %>
+        <%= "<i class='icon ion-checkmark-circled green-icon'></i>" %>
+        <% else %>
+        <%= "<i class='icon ion-record white-icon'></i>" %>
+        <% end %>
+        </button>
+      </form>
+      <!-- edit -->
+      <% if @todo_to_edit_id == todo.id %>
+        <form id="edit-form" action="/" method="post">
+          <input type="hidden" name="_method" value="patch">
+          <input type="hidden" name="patch_type" value="edit-task">
+          <input type="hidden" name="todo_id" value="<%= todo.id %>">
+          <input type="text" name="todo[task]" value="<%= todo.task %>">
+        </form>
+      <% else %>
+        <p class="<%= 'done' if todo.is_done %>" ><%= todo.task %></p>
+      <% end %>
+    </div>
+    
+
+    <div class="task-menu">
+      <!-- make editable -->
+      <form action="/" method="post">
+        <input type="hidden" name="_method" value="patch">
+        <input type="hidden" name="patch_type" value="make-editable">
+        <input type="hidden" name="todo_id" value="<%= todo.id %>">
+        <button id="edit-btn" type="submit" title="edit"><i class="icon ion-edit blue-icon"></i></button>
+      </form>
+      <!-- delete -->
+      <form action="/" method="post">
+        <input type="hidden" name="_method" value="delete">
+        <input type="hidden" name="todo_id" value="<%= todo.id %>">
+        <button id="delete-btn" type="submit" title="delete"><i class="icon ion-trash-b red-icon"></i></button>
+      </form>
+    </div>
+  </div>
+  <% end %>
+</div>
+
+
+<!-- ASSETS -->
+<!-- SCRIPTS -->
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<script type="text/javascript">
+$( function() {
+  var availableTags = [ <%= Todo.all.map {|t| t.task}.join(",") %> ];
+  $( "#taskInput" ).autocomplete({source: availableTags});
+} );
+</script>

@@ -1,0 +1,104 @@
+/* AUTH */
+div#todo-list {
+  width: 100%;
+}
+
+form#task-form {
+  width: 90%;
+  max-width: 100%;
+  margin-bottom: 60px;
+}
+
+form#task-form input[type="text"] {
+  width: 70%;
+  min-height: 40px;
+  padding: 0 20px;
+  font-size: 20px;
+}
+form#task-form button#add {
+  height: 40px;
+  padding: 0 20px;
+  font-size: 20px;
+  border: none;
+  color: white;
+  font-size: 20px;
+  background: #000;
+}
+
+form#task-form button#add:hover {
+  background: #666;
+}
+
+
+
+div.todo {
+  width: 100%;
+  display: block;
+  font-size: 20px;
+}
+
+.todo div {
+  float: left;
+  display: inline-block;
+}
+
+.todo .task {
+  width: 70%;
+}
+
+.todo form#edit-form input[type="text"] {
+  min-width: 80%;
+  /*min-height: 40px;*/
+  padding: 0;
+  font-size: 18px;
+}
+
+.todo .task .done {
+  color: #aaa;
+  text-decoration: line-through;
+}
+
+.todo .task form {
+  display: inline-block;
+  float: left;
+  margin-right: 20px;
+}
+
+.todo .task form i.white-icon {
+  color: white;
+}
+
+.todo .task form i.green-icon {
+  color: #7b7;
+}
+
+.todo .task-menu {
+  margin-bottom: 50px;
+}
+
+.todo .task-menu form {
+  display: inline-block;
+}
+
+.todo .task-menu form i {
+  color: #ccc;
+}
+
+.todo .task-menu form i.blue-icon:hover {
+  color: #005;
+}
+
+.todo .task-menu form i.red-icon:hover {
+  color: #e89;
+}
+
+
+.todo button {
+  border: none;
+  background: none;
+}
+
+.todo  button i {
+  display: inline-block;
+  font-size: 20px;
+}

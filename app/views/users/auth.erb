@@ -1,0 +1,35 @@
+<form id="signup" action="/" method="post">
+  <div class="input-area">
+    <input type="hidden" name="auth_type" value="signup">
+    <input type="text" name="user[name]" placeholder="name" required>
+    <input type="text" name="user[username]" placeholder="username" required>
+    <input type="email" name="user[email]" placeholder="email" required>
+    <input type="password" name="user[password]" placeholder="password" required>
+  </div>
+    
+  <input type="submit" name="auth_type" value="signup">
+</form>
+
+<form id="login" action="/" method="post">
+  
+  <div class="input-area">
+    <input type="hidden" name="auth_type" value="login">
+    <input type="text" name="user[username]" placeholder="username" required>
+    <input type="password" name="user[password]" placeholder="password" required>
+  </div>
+  <input type="submit" value="login">
+</form>
+
+<div class="hero">
+  <h1>you wanna get things done?</h1>
+  <h2>join dunn! today</h2>
+</div>
+
+
+<style type="">
+  div.hero {
+    font-size: 120%;
+    text-align: center;
+    margin: 20% 0;
+  }
+</style>
