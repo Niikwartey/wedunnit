@@ -1,6 +1,5 @@
 require './config/environment'
 
-
 class ApplicationController < Sinatra::Base
   configure do
     set :public_folder, 'public'
@@ -12,16 +11,30 @@ class ApplicationController < Sinatra::Base
 
 
   get '/' do
-    if session[:id]
-      @session = session
-      @user = User.find( session[:id] )
+    if user_signed_in?
       erb :'users/profile'
     else
-      @session = session
       erb :'users/auth'
     end
   end
 
+  helpers do
+    def current_user
+      @_current_user ||= User.find_by(id: session[:id])
+    end
+
+    def user_signed_in?
+      !!current_user
+    end
+
+    def login(user)
+      session[:id] = user.id
+    end
+
+    def logout
+      session[:id] = nil
+    end
+  end
   # not_found do
   #   @session = session
   #   @user = 
@@ -29,3 +42,5 @@ class ApplicationController < Sinatra::Base
   #   erb :oops
   # end
 end
+
+

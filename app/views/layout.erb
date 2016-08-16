@@ -15,14 +15,14 @@
       </div>
 
       <ul>
-        <% if @session[:id] %>
+        <% if user_signed_in? %>
         <l1 id="username">
-          <%= @user.username %>
+          <%= current_user.username %>
         </l1>
         <li>
           <!-- logout -->
-          <form id="logout" action="/" method="post">
-            <input type="hidden" name="auth_type" value="logout">
+          <form id="logout" action="/logout" method="post">
+            <input type="hidden" name="_method" value="delete">
             <button type="submit">logout</button>
           </form>
         </li>

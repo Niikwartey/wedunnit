@@ -1,10 +1,12 @@
 class TodosController < ApplicationController
   # create
-  put '/' do
-    if Helper.current_user(session)
-      todo = Todo.create( params[:todo] )
-      todo.is_done = false
-      Helper.current_user(session).todos << todo
+  post '/todos' do
+    if user_signed_in?
+      todo = current_user.todos.create( 
+        params[:todo].merge(
+          is_done: false,
+        ) 
+      )
     end
     redirect '/'
   end
@@ -22,17 +24,19 @@ class TodosController < ApplicationController
     @user = User.find( session[:id] )
     todo = Todo.find( params[:todo_id] )
     case params[:patch_type]
-    when "check-off"
-      todo.is_done = !todo.is_done
     when "make-editable"
-      @todo_to_edit_id = todo.id
+      edit_todo(todo)
     when "edit-task"
       todo.update( params[:todo] )
-      @todo_to_edit_id = nil
+      session[:editable_todo_id] = nil
     end
     todo.save
-    #redirect '/'
-    @session = session
-    erb :'users/profile'
+    redirect '/'
   end
+
+  helpers do 
+    def edit_todo(todo)
+      session[:editable_todo_id] = todo.id
+    end
+  end 
 end

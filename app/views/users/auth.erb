@@ -1,4 +1,4 @@
-<form id="signup" action="/" method="post">
+<form id="signup" action="/signup" method="post">
   <div class="input-area">
     <input type="hidden" name="auth_type" value="signup">
     <input type="text" name="user[name]" placeholder="name" required>
@@ -10,8 +10,7 @@
   <input type="submit" name="auth_type" value="signup">
 </form>
 
-<form id="login" action="/" method="post">
-  
+<form id="login" action="/login" method="post">
   <div class="input-area">
     <input type="hidden" name="auth_type" value="login">
     <input type="text" name="user[username]" placeholder="username" required>
