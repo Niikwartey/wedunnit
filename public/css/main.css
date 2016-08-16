@@ -25,15 +25,20 @@ nav .container {
 }
 
 nav .logo {
-  color: whitesmoke;
   font-size: 130%;
   margin-bottom: 30%;
 }
+
+nav .logo a {
+  color: whitesmoke;
+}
+
 
 nav li {
   margin-bottom: 10%;
   font-size: 120%;
 }
+
 
 nav footer {
   color: #666;
@@ -75,4 +80,14 @@ main {
 main .container {
   padding: 4%;
   width: 100%;
+}
+
+div.hero {
+  font-size: 120%;
+  text-align: center;
+  margin: 20% -10%;
+}
+
+.hero h3 {
+  margin-top: 20px;
 }

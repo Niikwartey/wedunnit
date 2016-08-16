@@ -23,6 +23,7 @@ class TodosController < ApplicationController
   patch '/' do
     @user = User.find( session[:id] )
     todo = Todo.find( params[:todo_id] )
+    # check for patch type
     case params[:patch_type]
     when "make-editable"
       edit_todo(todo)
@@ -36,7 +37,11 @@ class TodosController < ApplicationController
 
   helpers do 
     def edit_todo(todo)
-      session[:editable_todo_id] = todo.id
+      if session[:editable_todo_id] == todo_id
+        session[:editable_todo_id] = nil
+      else
+        session[:editable_todo_id] = todo_id
+      end 
     end
   end 
 end

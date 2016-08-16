@@ -35,12 +35,11 @@ class ApplicationController < Sinatra::Base
       session[:id] = nil
     end
   end
-  # not_found do
-  #   @session = session
-  #   @user = 
-  #   status 404
-  #   erb :oops
-  # end
+
+  not_found do
+    status 404
+    erb :oops
+  end
 end
 
 
