@@ -56,14 +56,3 @@
   </div>
   <% end %>
 </div>
-
-
-<!-- ASSETS -->
-<!-- SCRIPTS -->
-<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-<script type="text/javascript">
-$( function() {
-  var availableTags = [ <%= Todo.all.map {|t| t.task}.join(",") %> ];
-  $( "#taskInput" ).autocomplete({source: availableTags});
-} );
-</script>
