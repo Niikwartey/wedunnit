@@ -84,12 +84,12 @@ div.todo {
   color: #ccc;
 }
 
-.todo .task-menu form i.blue-icon:hover {
-  color: #005;
+.todo .task-menu form i.black-icon:hover {
+  color: #001;
 }
 
 .todo .task-menu form i.red-icon:hover {
-  color: #e89;
+  color: #f32;
 }
 
 
