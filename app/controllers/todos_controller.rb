@@ -37,10 +37,10 @@ class TodosController < ApplicationController
 
   helpers do 
     def edit_todo(todo)
-      if session[:editable_todo_id] == todo_id
+      if session[:editable_todo_id] == todo.id
         session[:editable_todo_id] = nil
       else
-        session[:editable_todo_id] = todo_id
+        session[:editable_todo_id] = todo.id
       end 
     end
   end 
